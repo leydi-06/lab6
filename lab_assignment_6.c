@@ -1,8 +1,26 @@
 #include <stdio.h>
 
 int search(int numbers[], int low, int high, int value) 
+//low the lowest integer, high highest integer, and value is the int that is being search
 {
+	int mid;
+	if(high>=low){
+	//calculate the middle index of the current search.
+	mid = low +(high - low)/2;
+
+	//Check if the value in the middle is the one that its being searched for
+	if(numbers[mid]==value)
+	return mid;
+
+	else if(numbers[mid]>value)
+	return research(numbers, low, mid-1, value);
+
+	else
+	return research(numbers, mid+1, high, value);
+
+	}
 	return -1;
+	
 }
 
 void printArray(int numbers[], int sz)
